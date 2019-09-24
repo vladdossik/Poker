@@ -1,0 +1,6 @@
+c:\users\ivlad\documents\visual studio 2015\Projects\texas_holdem\texas_holdem\bin\Debug\texas_holdem.exe.config
+c:\users\ivlad\documents\visual studio 2015\Projects\texas_holdem\texas_holdem\bin\Debug\texas_holdem.exe
+c:\users\ivlad\documents\visual studio 2015\Projects\texas_holdem\texas_holdem\bin\Debug\texas_holdem.pdb
+c:\users\ivlad\documents\visual studio 2015\Projects\texas_holdem\texas_holdem\obj\Debug\texas_holdem.csprojResolveAssemblyReference.cache
+c:\users\ivlad\documents\visual studio 2015\Projects\texas_holdem\texas_holdem\obj\Debug\texas_holdem.exe
+c:\users\ivlad\documents\visual studio 2015\Projects\texas_holdem\texas_holdem\obj\Debug\texas_holdem.pdb
