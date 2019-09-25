@@ -9,8 +9,8 @@ namespace POKER
     class Karta
     {
         public enum Kombinacii { карта = 1, пара, двепары, тройка, стрит, флеш, фулхауз, каре, стритфлеш, ройалфлеш }// для определения победителя
-        public enum Mast { пики = 1, черви, буби, крести }
-        public enum Znachenie { два = 1, три, четыре, пять, шесть, семь, восемь, девять, десять, валет, дама, король, туз }
+        public enum Mast { peaks = 1, heart, bubi, baptize }
+        public enum Znachenie { two = 1, three, four, five, six, seven, eight, nine, ten, jack, lady, king, ace }
         public int[] yours;//карты у человека на руках
         public int[] ontable;//карты, которые будут выкладываться на столе
         public int balance;//начальный баланс игрока
@@ -26,22 +26,22 @@ namespace POKER
 
             for (i = 0; i < yours.Length / 2; i++)
             {
-                yours[i] = random.Next((int)Mast.пики, (int)Mast.крести);
+                yours[i] = random.Next((int)Mast.peaks, (int)Mast.baptize);
             }
             int y = yours.Length / 2;
             for (; y < yours.Length; y++)
             {
-                yours[y] = random.Next((int)Znachenie.два, (int)Znachenie.туз);
+                yours[y] = random.Next((int)Znachenie.two, (int)Znachenie.ace);
             }
             for (int t = 0; t < ontable.Length / 2; t++)
             {
-                ontable[t] = random.Next((int)Mast.пики, (int)Mast.крести);
+                ontable[t] = random.Next((int)Mast.peaks, (int)Mast.baptize);
             }
 
             int r = ontable.Length / 2;
             for (; r < ontable.Length; r++)
             {
-                ontable[r] = random.Next((int)Znachenie.два, (int)Znachenie.туз);
+                ontable[r] = random.Next((int)Znachenie.two, (int)Znachenie.ace);
             }
             balance = 100;//начальный баланс =100
             CountMast = 0;
@@ -268,15 +268,15 @@ namespace POKER
             do
             {
                 Console.Clear();
-                Write("> Начать", 5, 5, ConsoleColor.White, (hoverRow == 0) ? ConsoleColor.Green : ConsoleColor.Black);
-                Write(">Правила", 0, 0, ConsoleColor.White, (hoverRow == 1) ? ConsoleColor.Green : ConsoleColor.Black);
-                Write("> Об игре", 0, 0, ConsoleColor.White, (hoverRow == 2) ? ConsoleColor.Green : ConsoleColor.Black);
+                Write("> Start", 5, 5, ConsoleColor.White, (hoverRow == 0) ? ConsoleColor.Green : ConsoleColor.Black);
+                Write("> Rules", 0, 0, ConsoleColor.White, (hoverRow == 1) ? ConsoleColor.Green : ConsoleColor.Black);
+                Write("> About", 0, 0, ConsoleColor.White, (hoverRow == 2) ? ConsoleColor.Green : ConsoleColor.Black);
                 switch (selectedRow)
                 {
                     case -1:
                         {
-                            Write("Используй стрелки вверх или вниз для навигации ", 2);
-                            Write("Завершив свой выбор, нажми Enter");
+                            Write("Use up or down arrows for navigation ", 2);
+                            Write("Upon completion, select Enter");
                             break;
                         }
                     case 1:
