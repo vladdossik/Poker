@@ -17,7 +17,8 @@ static void ShowMenu()
 ```
 Method to show menu.
 
-![photo_2019-09-25_09-46-00](https://user-images.githubusercontent.com/45006912/65575879-8102ec00-df79-11e9-9c26-9da9ee9f3753.jpg)
+![image](https://user-images.githubusercontent.com/45006912/65583797-8582d100-df88-11e9-80b0-d8f1c6b06d21.png)
+
 
 ### Obuchenie()
 ```
@@ -31,7 +32,7 @@ public void Vivod1()
 ```
 Method to show your cards(suits and meanings).
 
-![photo_2019-09-25_11-16-15](https://user-images.githubusercontent.com/45006912/65582364-eceb5180-df85-11e9-9e4f-be2585cc526d.jpg)
+![image](https://user-images.githubusercontent.com/45006912/65584192-2e313080-df89-11e9-83f2-41e86d25efc1.png)
 
 ### W()
 ```
@@ -41,3 +42,4 @@ Method to show your combination.
 
 ![image](https://user-images.githubusercontent.com/45006912/65582642-7a2ea600-df86-11e9-9550-e5cf7bd46205.png)
 
+This program has a number of flaws and is based on the number of card matches (most combinations). Moreover, cards can be repeated, since 1 card array is used in which identical cards can be randomly generated.
