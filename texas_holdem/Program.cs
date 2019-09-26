@@ -8,12 +8,12 @@ namespace POKER
 {
     class Karta
     {
-        public enum Kombinacii { карта = 1, пара, двепары, тройка, стрит, флеш, фулхауз, каре, стритфлеш, ройалфлеш }// для определения победителя
+        public enum Kombinacii { card = 1, couple, two_pairs, triple, street, flash, full_house, square, straight_flash, royal_flash }// для определения победителя
         public enum Mast { peaks = 1, heart, bubi, baptize }
         public enum Znachenie { two = 1, three, four, five, six, seven, eight, nine, ten, jack, lady, king, ace }
-        public int[] yours;//карты у человека на руках
-        public int[] ontable;//карты, которые будут выкладываться на столе
-        public int balance;//начальный баланс игрока
+        public int[] yours;//cards in person’s hands
+        public int[] ontable;//cards to be laid out on the table
+        public int balance;//initial balance
         public int CountMast;
         public int CountZnach;
         public int newbalance = 0;
@@ -43,11 +43,12 @@ namespace POKER
             {
                 ontable[r] = random.Next((int)Znachenie.two, (int)Znachenie.ace);
             }
-            balance = 100;//начальный баланс =100
+            balance = 100; //initial balance=100
             CountMast = 0;
             CountZnach = 0;
         }
         public static Random random = new Random();
+
         public void Vivod1()
         {
             Console.SetCursorPosition(15, Console.CursorTop + 5);
@@ -60,7 +61,7 @@ namespace POKER
                 ConsoleKey ki = Console.ReadKey().Key;
                 if (ki != ConsoleKey.Enter)
                 {
-                    Console.WriteLine(" Для продолжения нажмите Enter");
+                    Console.WriteLine("To continue, press Enter");
                 }
                 else
                 {
@@ -73,7 +74,7 @@ namespace POKER
         {
             BALANCE();
             Console.SetCursorPosition(15, Console.CursorTop + 5);
-            Console.WriteLine("Ваши карты");
+            Console.WriteLine("Your cards");
             Console.WriteLine($"\t{(Znachenie)yours[2]}|       {(Znachenie)yours[3]}");
             Console.WriteLine($"\t{(Mast)yours[0]}|       {(Mast)yours[1]}");
             Console.WriteLine();
@@ -95,7 +96,7 @@ namespace POKER
                 ConsoleKey ki = Console.ReadKey().Key;
                 if (ki != ConsoleKey.Enter)
                 {
-                    Console.WriteLine(" Для продолжения нажмите Enter");
+                    Console.WriteLine("To continue, press Enter");
                 }
                 else
                 {
@@ -106,9 +107,8 @@ namespace POKER
             Program.Prodolzhenie();
         }
         public void Nahozhdenie()
-        {
-            // Console.WriteLine("\n\n\tДанную часть вы можете использовать как подсказку для своих выводах о возможных исходах игры"); 
-            for (int i = 0; i < ontable.Length / 2; i++)//сначала проверим масти
+        { 
+            for (int i = 0; i < ontable.Length / 2; i++)
             {
                 for (int r = 0; r < yours.Length / 2; r++)
                 {
@@ -133,31 +133,32 @@ namespace POKER
         }
         public void End()
         {
-            if (CountZnach == 1)//пары
+            if (CountZnach == 1)
             {
-                vashakombin = (int)Kombinacii.пара;
+                // card = 1, couple, two_pairs, triple, street, flash, full_house, square, straight_flash, royal_flash }// 
+                vashakombin = (int)Kombinacii.couple;
             }
             if (CountZnach == 2)
             {
-                vashakombin = (int)Kombinacii.двепары;
+                vashakombin = (int)Kombinacii.two_pairs;
             }
             if (CountZnach == 5)//фулхауз
             {
-                vashakombin = (int)Kombinacii.фулхауз;
+                vashakombin = (int)Kombinacii.full_house;
             }
             if (CountZnach == 3)//тройка
             {
-                vashakombin = (int)Kombinacii.тройка;
+                vashakombin = (int)Kombinacii.triple;
             }
             if (CountZnach == 4)//каре
             {
-                vashakombin = (int)Kombinacii.каре;
+                vashakombin = (int)Kombinacii.square;
             }
             if (CountMast == 5)//флеш
             {
-                vashakombin = (int)Kombinacii.флеш;
+                vashakombin = (int)Kombinacii.flash;
             }
-            int[] array = new int[5];//количество карт на столе
+            int[] array = new int[5]; //the number of cards on the table
             Array.Copy(ontable, 5, array, 0, 4);
             array[4] = yours[2];
             Poranaarm(array);
@@ -194,21 +195,21 @@ namespace POKER
             }
             if (count == 4 && proverka)
             {
-                vashakombin = (int)Kombinacii.ройалфлеш;
+                vashakombin = (int)Kombinacii.royal_flash;
             }
             if (count == 4 && proverka1)
             {
-                vashakombin = (int)Kombinacii.стритфлеш;
+                vashakombin = (int)Kombinacii.straight_flash;
             }
             if (count == 4)
             {
-                vashakombin = (int)Kombinacii.стрит;
+                vashakombin = (int)Kombinacii.street;
             }
         }
         public void BALANCE()
         {
-            Console.WriteLine(" Делайте ваши ставки");
-            Program.Write($"Введите свою ставку\nНапоминаем, ваш начальный баланс равен={balance}", 5, 5);
+            Console.WriteLine("Place your bets");
+            Program.Write($"Enter your bid \nRemind you your initial balance is={balance}", 5, 5);
             int stavka;
             try
             {
@@ -218,7 +219,7 @@ namespace POKER
             }
             catch (Exception)
             {
-                Console.WriteLine("Было введено недопустимое значение\nБудет присвоено значение по умолчанию");
+                Console.WriteLine("An invalid value was entered \nThe default value will be assigned");
                 stavka = 10;
             }
             newbalance += stavka;
@@ -226,8 +227,8 @@ namespace POKER
             {
                 newbalance = balance - 20;
             }
-            Console.WriteLine($"Ваша текущая ставка==={newbalance}");
-            Console.WriteLine("Дилер>Ставки сделаны. Ставок больше нет");
+            Console.WriteLine($"Your current bid ==={newbalance}");
+            Console.WriteLine("Dealer > Bets made.No more bids");
         }
         public void W()
         {
@@ -281,23 +282,23 @@ namespace POKER
                         }
                     case 1:
                         {
-                            Write("человеку раздается по 2 карты", 2, 2);
-                            Write("5 карт выкладываются на стол");
-                            Write("Сначала 3 потом 4-ая, а потом уже 5-ая");
-                            Write("Посредством поднятия ставки, человек продолжает игру");
-                            Write("Задача- выиграть");
-                            Write(" P.S.данная игра требует от человека знаний высшей математики для угадывания  вероятности попадания той или иной комбинации ");
-                            Write("здесь все будет попроще");
-                            Write("Желаю удачи!");
+                            Write("2 cards are dealt to a person", 2, 2);
+                            Write("5 cards are laid out on the table");
+                            Write("First 3 then the 4th, and then the 5th");
+                            Write("By raising the bet, the person continues to play");
+                            Write("Task - win");
+                            Write("P.S.This game requires a person to have knowledge of higher mathematics to guess the probability of a particular combination ");
+                            Write("Everything will be simpler here.");
+                            Write("Good luck!");
                             break;
                         }
                     case 2:
                         {
 
-                            Write("Добро пожаловать в игру покер TEXAS HOLDEM", 2, 2);
-                            Write("В  1900  в небольшом городке в штате Техас, появилась игра, востребованная у огромного количества любителей покера.\n\t\t Согласно истории, Техасский Холдем придумали золотоискатели, жаждущие приключений и богатства.");
-                            Write("Техасский Холдем отличается от многих других видов покера тем,\n\t\t что помимо карт на руках игрока есть еще и общие карты, которые может использовать каждый сидящий за столом.\n\t\t В «Техасе» есть несколько раундов: Префлоп, Флоп, Терн, Ривер.\n \t\tКаждый раунд сопровождается торгами: игроки делают ставки, которые составляют общий банк. \n\t\tСорвать банк - цель каждого игрока.\n \t\tТо, что в игре есть общие карты, делает ее более интересной. ");
-                            Write("Желаю удачи", 2, 2);
+                            Write("Welcome to the poker game TEXAS HOLDEM", 2, 2);
+                            Write("In 1900, a game demanded by a huge number of poker fans appeared in a small town in the state of Texas. \n\t\t According to the story, Texas Holdem was invented by gold miners who crave adventure and wealth.");
+                            Write("Texas Hold'em differs from many other types of poker in that \n\t\t in addition to cards on the player’s hands there are also common cards that everyone at the table can use. \n\t\t There are several rounds in Texas: Preflop, Flop, Turn, River.\n\t\tEvery round is accompanied by bidding: players place bets that make up the common bank. \n\t\tTo break a bank is the goal of each player. \n\t\tThere are common cards in the game, which makes it more interesting. ");
+                            Write("Good luck", 2, 2);
                             break;
                         }
                 }
@@ -334,22 +335,22 @@ namespace POKER
             do
             {
                 Console.Clear();
-                Write("Продолжаем?", 5, 5);
-                Write("> ДА", 0, 0, ConsoleColor.White, (hoverRow == 0) ? ConsoleColor.Green : ConsoleColor.Black);
-                Write(">НЕТ", 0, 0, ConsoleColor.White, (hoverRow == 1) ? ConsoleColor.Green : ConsoleColor.Black);
+                Write("Are we continuing?", 5, 5);
+                Write("> Yes", 0, 0, ConsoleColor.White, (hoverRow == 0) ? ConsoleColor.Green : ConsoleColor.Black);
+                Write("> No", 0, 0, ConsoleColor.White, (hoverRow == 1) ? ConsoleColor.Green : ConsoleColor.Black);
 
                 switch (selectedRow)
                 {
                     case -1:
                         {
-                            Write("Используй стрелки вверх или вниз для навигации ", 2);
-                            Write("Завершив свой выбор, нажми Enter");
+                            Write("Use up or down arrows for navigation ", 2);
+                            Write("When you are finished, press Enter");
                             break;
                         }
                     case 1:
                         {
-                            Write("Вs проиграли");
-                            Write("  Спасибо за игру!");
+                            Write("You lose");
+                            Write("Thank you!");
                             Thread.Sleep(1000);
                             Environment.Exit(0);
                             break;
@@ -382,18 +383,17 @@ namespace POKER
         public static void Obuchenie()
         {
             Console.Clear();
-            Write("Обучение");
-            Write("И так");
-            Write(" После вывода приветственного сообщения будет выводится меню");
-            Write(" Вы можете прочитать правила, об игре или сразу начать");
-            Write(" (начать) сначала выводятся ваши карты и посредством нажатия Enter  и ответа <Да> продолжайте игру");
-            Write(" В покере проходят 3 фазы когда человеку нужно сделать ставку");
-            Write(" Ставка делается после вопроса о продолжении ( для того чтобы обдумать нужно ли продолжать игру или нет)");
-            Write("Вам не придется думать о вашей комбинации(я позаботился об этом");
-            Write("под конец на экране появятся карты противника ");
+            Write("Training");
+            Write("After the greeting message is displayed, the menu will be displayed.");
+            Write("You can read the rules about the game and then start right away.");
+            Write("(Start) your cards are first displayed and by pressing Enter and the answer < Yes > continue the game");
+            Write("There are 3 phases in poker when a person needs to bet");
+            Write("The bet is made after the question of continuation (in order to consider whether to continue the game or not)");
+            Write("You don’t have to think about your combination(I took care of this)");
+            Write("At the end, enemy cards will appear on the screen");
             Write("И надпись о победе, поражении или ничьей(ничья не выводится)");
-            Write(" Потом появится ваша комбинация, а потом противника");
-            Write(" Если же не будет никакой комбинации, появится 0");
+            Write("Then your combination will appear, and then the opponent");
+            Write("If there is no combination, 0 will appear");
             bool exit = false;
             do
             {
