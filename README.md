@@ -20,15 +20,15 @@ Method to show menu.
 ![image](https://user-images.githubusercontent.com/45006912/65583797-8582d100-df88-11e9-80b0-d8f1c6b06d21.png)
 
 
-### Obuchenie()
+### Rules()
 ```
-public static void Obuchenie()
+public static void Rules()
 ```
 Method to show instruction of the game.
 
-### karta.Vivod1();
+### karta.Print_1();
 ```
-public void Vivod1()
+public void Print_1()
 ```
 Method to show your cards(suits and meanings).
 
