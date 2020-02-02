@@ -1,0 +1,10 @@
+/Users/user/Projects/poker/poker/obj/Debug/poker.csprojAssemblyReference.cache
+/Users/user/Projects/poker/poker/bin/Debug/poker.exe
+/Users/user/Projects/poker/poker/bin/Debug/poker.pdb
+/Users/user/Projects/poker/poker/obj/Debug/poker.exe
+/Users/user/Projects/poker/poker/obj/Debug/poker.pdb
+/Users/user/Desktop/P/bin/Debug/poker.exe
+/Users/user/Desktop/P/bin/Debug/poker.pdb
+/Users/user/Desktop/P/obj/Debug/poker.csprojAssemblyReference.cache
+/Users/user/Desktop/P/obj/Debug/poker.exe
+/Users/user/Desktop/P/obj/Debug/poker.pdb
