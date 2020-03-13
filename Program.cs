@@ -10,7 +10,7 @@ namespace POKER
     {
         public enum Kombinacii { сard = 1, couple, twopairs, triple, straight, flush, fullhouse, four_of_a_kind, straight_flush, royal_flush }// для определения победителя
         public enum Mast { peaks = 1, heart, diamonds, baptize }
-        public enum Znachenie { two = 1, three, four, five, sex, seven, eight, nine, ten,  jack, lady, king, ace }
+        public enum Znachenie { two = 1, three, four, five, sex, seven, eight, nine, ten, jack, lady, king, ace }
         public int[] yours;
         public int[] ontable;
         public int balance;
@@ -27,7 +27,7 @@ namespace POKER
             for (i = 0; i < yours.Length / 2; i++)
             {
                 yours[i] = random.Next((int)Mast.peaks, (int)Mast.baptize);
-            }   
+            }
             int y = yours.Length / 2;
             for (; y < yours.Length; y++)
             {
@@ -381,7 +381,7 @@ namespace POKER
         static void Main(string[] args)
         {
             Console.CursorVisible = false;
-     
+
             Thread.Sleep(3000);
             Console.Clear();
             Intro();

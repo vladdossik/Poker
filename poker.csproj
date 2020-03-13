@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">anycpu</Platform>
-    <ProjectGuid>{608A9956-AA19-43DA-9637-9F67A6D2BD42}</ProjectGuid>
+    <ProjectGuid>{8A299B7C-BA91-4CB8-950A-86C2427BE9EB}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>poker</RootNamespace>
     <AssemblyName>poker</AssemblyName>
